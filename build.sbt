@@ -1,8 +1,8 @@
 name := "lightning-scala"
 
-version := "0.1.0-SNAPSHOT"
+version := "0.2.0"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.10.4"
 
 homepage := Some(url("http://lightning-viz.org"))
 
@@ -29,6 +29,8 @@ publishTo := {
   else
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
+
+test in assembly := {}
 
 publishArtifact in Test := false
 
