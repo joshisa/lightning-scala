@@ -52,6 +52,22 @@ trait Plots extends Base {
     }
 
   }
+  
+  /**
+   * Histogram support.
+   */
+  def histogram(values: Array[Array[Double]],
+                bins: Int = null.asInstanceOf[Int],
+                zoom: Boolean = false): Visualization = {
+
+    val data = Map("values" -> values.toList, "bins" -> bins)
+    val options = Map("zoom" -> zoom)
+
+    val settings = new Settings()
+
+    plot("histogram", data ++ options ++ settings.toMap)
+
+  }
 
   /**
    * Force-directed network from connectivity.
@@ -79,8 +95,9 @@ trait Plots extends Base {
    */
   def scatter(x: Array[Double],
               y: Array[Double],
-              label: Array[Int] = Array[Int](),
+              group: Array[Int] = Array[Int](),
               value: Array[Double] = Array[Double](),
+              labels: Array[String] = Array[String](),
               colormap: String = "",
               size: Array[Double] = Array[Double](),
               alpha: Array[Double] = Array[Double](),
@@ -88,10 +105,10 @@ trait Plots extends Base {
               yaxis: String = ""): Visualization = {
 
     val points = Utils.getPoints(x, y)
-    val data = Map("points" -> points.toList)
+    val data = Map("points" -> points.toList, "group" -> group.toList)
 
     val settings = new Settings()
-      .append(List(Label(label), Value(value), Colormap(colormap), Size(size), Alpha(alpha)))
+      .append(List(Label(label), Value(value), Colormap(colormap), Size(size), Alpha(alpha) , Group(group) ))
       .append(List(Axis(xaxis, "xaxis"), Axis(yaxis, "yaxis")))
 
     plot("scatter", data ++ settings.toMap)
