@@ -56,7 +56,9 @@ trait Plots extends Base {
   /**
    * Histogram support.
    */
-  def histogram(values: Array[Array[Double]]): Visualization = {
+  def histogram(values: Array[Array[Double]],
+                label: Array[Int] = Array[Int](),
+                xaxis: String = ""): Visualization = {
 
     val data = Map("values" -> values.toList)
 
