@@ -54,13 +54,11 @@ trait Plots extends Base {
   }
   
   /**
-   * One or more one-dimensional series data as lines.
+   * Histogram support.
    */
-  def histogram(series: Array[Array[Double]],
-                label: Array[Int] = Array[Int](),
-                xaxis: String = ""): Visualization = {
+  def histogram(values: Array[Array[Double]]): Visualization = {
 
-    val data = Map("series" -> series.toList)
+    val data = Map("values" -> values.toList)
 
     val settings = new Settings()
       .append(List(Label(label)))
