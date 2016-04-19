@@ -60,7 +60,7 @@ trait Plots extends Base {
                 bins: Int = null.asInstanceOf[Int],
                 zoom: Boolean = true): Visualization = {
 
-    val data = Map("values" -> values.toList, "bins" -> bins, "zoom" -> zoom)
+    val data = Map("values" -> values.toList, "bins" -> bins)
 
     val settings = new Settings()
 
