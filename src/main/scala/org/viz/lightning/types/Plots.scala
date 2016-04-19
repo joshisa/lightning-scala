@@ -57,14 +57,14 @@ trait Plots extends Base {
    * Histogram support.
    */
   def histogram(values: Array[Array[Double]],
+                bins: Int = null.asInstanceOf[Int],
                 zoom: Boolean = true): Visualization = {
 
-    val data = Map("values" -> values.toList)
-    val options = Map("zoom" -> zoom)
+    val data = Map("values" -> values.toList, "bins" -> bins.toList, "zoom" -> zoom.toList))
 
     val settings = new Settings()
 
-    plot("histogram", data ++ options ++ settings.toMap)
+    plot("histogram", data ++ settings.toMap)
 
   }
 
