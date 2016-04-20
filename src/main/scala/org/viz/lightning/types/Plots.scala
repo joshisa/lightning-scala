@@ -95,9 +95,9 @@ trait Plots extends Base {
    */
   def scatter(x: Array[Double],
               y: Array[Double],
-              labels: Array[String] = Array[String](),
               group: Array[Int] = Array[Int](),
               value: Array[Double] = Array[Double](),
+              labels: Array[String] = Array[String](),
               colormap: String = "",
               size: Array[Double] = Array[Double](),
               alpha: Array[Double] = Array[Double](),
@@ -105,7 +105,7 @@ trait Plots extends Base {
               yaxis: String = ""): Visualization = {
 
     val points = Utils.getPoints(x, y)
-    val data = Map("points" -> points.toList, "labels" -> labels.iterator.toList, "group" -> group.toList)
+    val data = Map("points" -> points.toList, "group" -> group.toList)
 
     val settings = new Settings()
       .append(List(Value(value), Colormap(colormap), Size(size), Alpha(alpha)))
