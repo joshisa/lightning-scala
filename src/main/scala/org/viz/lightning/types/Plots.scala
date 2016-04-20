@@ -105,7 +105,7 @@ trait Plots extends Base {
               yaxis: String = ""): Visualization = {
 
     val points = Utils.getPoints(x, y)
-    val data = Map("points" -> points.toList, "labels" -> labels.elements.toList, "group" -> group.toList)
+    val data = Map("points" -> points.toList, "labels" -> labels.iterator.toList, "group" -> group.toList)
 
     val settings = new Settings()
       .append(List(Value(value), Colormap(colormap), Size(size), Alpha(alpha)))
