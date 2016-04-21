@@ -94,7 +94,7 @@ class Lightning (var host: String) extends Plots with Three with Linked {
 
     implicit val formats = DefaultFormats
     
-    val opts: Map[String, Any] = Map("zoom" -> False)
+    val opts: Map[String, Any] = Map("zoom" -> false)
 
     val blob = Map("data" -> data, "type" -> name, "options" -> opts)
     val payload = Serialization.write(blob)
