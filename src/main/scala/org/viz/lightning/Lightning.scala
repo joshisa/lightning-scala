@@ -93,8 +93,10 @@ class Lightning (var host: String) extends Plots with Three with Linked {
   def postData(url: String, data: Map[String, Any], name: String, method: String = "POST"): String = {
 
     implicit val formats = DefaultFormats
+    
+    val opts: Map[String, Any] = Map("zoom" -> False)
 
-    val blob = Map("data" -> data, "type" -> name)
+    val blob = Map("data" -> data, "type" -> name, "options" -> opts)
     val payload = Serialization.write(blob)
     post(url, payload, method)
   }
