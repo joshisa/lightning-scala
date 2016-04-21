@@ -105,11 +105,10 @@ trait Plots extends Base {
               yaxis: String = ""): Visualization = {
 
     val points = Utils.getPoints(x, y)
-    val data = Map("points" -> points.toList, "group" -> group.toList, "labels" -> labels.toList)
+    val data = Map("points" -> points.toList, "group" -> group.toList)
 
     val settings = new Settings()
-      .append(List(Value(value), Colormap(colormap), Size(size), Alpha(alpha)))
-      .append(List(Axis(xaxis, "xaxis"), Axis(yaxis, "yaxis")))
+      .append(List(Labels(labels), Value(value), Colormap(colormap), Size(size), Alpha(alpha), Axis(xaxis, "xaxis"), Axis(yaxis, "yaxis")))
 
     plot("scatter", data ++ settings.toMap)
   }
