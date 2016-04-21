@@ -17,6 +17,14 @@ case class Label(label: Array[Int]) extends Style {
 
 }
 
+case class Labels(labels: Array[String]) extends Style {
+
+  def name = "labels"
+  def defined = labels.length > 0
+  def contents = labels.toList
+
+}
+
 case class Value(value: Array[Double]) extends Style {
 
   def name = "value"
