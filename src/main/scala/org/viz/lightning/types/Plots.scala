@@ -108,7 +108,8 @@ trait Plots extends Base {
     val data = Map("points" -> points.toList, "group" -> group.toList)
 
     val settings = new Settings()
-      .append(List(Labels(labels), Value(value), Colormap(colormap), Size(size), Alpha(alpha), Axis(xaxis, "xaxis"), Axis(yaxis, "yaxis")))
+      .append(List(Label(label), Value(value), Colormap(colormap), Size(size), Alpha(alpha) , Group(group) ))
+      .append(List(Axis(xaxis, "xaxis"), Axis(yaxis, "yaxis")))
 
     plot("scatter", data ++ settings.toMap)
   }
